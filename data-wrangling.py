@@ -41,9 +41,15 @@ def sort_by_locale():
 print(df.isnull())
 #detect if any column is completely empty, would come up as True if empty
 print(df.isnull().all())
-#detect if there is any duplicate values in locations
-print(df.['Locations'].duplicated())
+
 
 # Step 4: Transform Data
 # Conduct 1-2 data tranformations on your dataset, such as indexing your data with a useful numeric value, or combining multiple columns into a new column.
 
+#index data with useful numeric value
+years = df['Release Year']
+q1 = years.quantile(.25)
+q3 = years.quantile(.75)
+
+print(q1)
+print(q3)
